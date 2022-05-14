@@ -23,22 +23,26 @@ const SignupContainer = ({ text = "123" }) => {
                     height: "100%",
                     backgroundColor: 'white',
                     borderRadius: "0 15px 15px 0",
-                    display: "grid",
-                    placeItems: "center"
+                    display:"flex",
+                    flexDirection:"column",
+                    justifyContent:"center",
+                    alignItems:"center"
+
                 }}>
                 <Typography sx={{ color: "#8E24AA", fontSize: "30px", fontWeight: "Bold" }}>فرم ثبت نام</Typography>
+                
                 <SignUpSteps/>
 
-                <Button variant="contained">ثبت نام</Button>
 
             </Box>
             <Box
                 sx={{
+                    display:{xs:'none',md:'grid'},
                     width: "50%",
                     height: "100%",
                     backgroundColor: '#8E24AA',
                     borderRadius: "15px 0 0 15px",
-                    display: "grid",
+                    // display: "grid",
                     placeItems: "center"
                 }}>
                 <Box>
