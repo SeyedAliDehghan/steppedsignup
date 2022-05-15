@@ -71,10 +71,6 @@ const SignUpSteps = () => {
               {steps[step - 1].stepDescription}
             </Typography>
             <TextField
-              error={error}
-              helperText={error && "لطفا شماره موبایل را طبق فرمت صحیح وارد نمایید"}
-
-              value={phoneNumber}
               onChange={(e) => PhoneNumberChangeHandler(e.target.value)}
               sx={{ width: "80%", mb: 2 }}
               label="کد فعال سازی"
@@ -87,7 +83,7 @@ const SignUpSteps = () => {
             sx={{ width: "80%" }}
             variant="contained"
           >
-            مرحله بعد
+            تایید
           </Button>
         </>
       )}
