@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -18,6 +18,7 @@ const SignUpSteps = () => {
   const [step, setStep] = useState(1);
   const [error, setError] = useState(true);
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [entredCode, setEntredCode] = useState("");
 
   const validatePhoneNumber = () => {
     const regex = new RegExp("^(\\+0|0098|98|0)?9\\d{9}$");
@@ -27,13 +28,18 @@ const SignUpSteps = () => {
     setPhoneNumber(value);
   };
   const stepHandler = (currentStep, action) => {
-      if(!error && step===1){
-          setStep(2)
-      }
-      
+    if (!error && step === 1) {
+      setStep(2)
+    }
+
   };
+  const verifyHandler = () => {
+    let tmpCode = "1234"
+    if(entredCode===tmpCode)console.log("true")
+
+  }
   useEffect(() => {
-      validatePhoneNumber()
+    validatePhoneNumber()
   }, [phoneNumber])
   return (
     <>
@@ -55,7 +61,7 @@ const SignUpSteps = () => {
             />
           </Box>
           <Button
-          disabled={error}
+            disabled={error}
             onClick={() => stepHandler()}
             sx={{ width: "80%" }}
             variant="contained"
@@ -71,15 +77,16 @@ const SignUpSteps = () => {
               {steps[step - 1].stepDescription}
             </Typography>
             <TextField
-              onChange={(e) => PhoneNumberChangeHandler(e.target.value)}
+              value={entredCode}
+              onChange={(e) => setEntredCode(e.target.value)}
               sx={{ width: "80%", mb: 2 }}
               label="کد فعال سازی"
               variant="outlined"
             />
           </Box>
           <Button
-          disabled 
-            onClick={() => stepHandler()}
+            // disabled
+            onClick={() => verifyHandler()}
             sx={{ width: "80%" }}
             variant="contained"
           >
